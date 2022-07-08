@@ -1,9 +1,12 @@
+import NavBar from '../components/NavBar';
+
 const DrinkListPage = () => {
   return (
-    <main style={{ padding: "1rem 0" }}>
+    <main>
+      <NavBar />
       <h2>Drink List</h2>
     </main>
   );
 }
 
-export default PracticePage;
+export default DrinkListPage;

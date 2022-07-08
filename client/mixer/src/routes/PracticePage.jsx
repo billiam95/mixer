@@ -1,6 +1,9 @@
+import NavBar from '../components/NavBar';
+
 const PracticePage = () => {
   return (
-    <main style={{ padding: "1rem 0" }}>
+    <main>
+      <NavBar />
       <h2>Practice</h2>
     </main>
   );

@@ -1,9 +1,12 @@
+import NavBar from '../components/NavBar';
+
 const ManageDrinksPage = () => {
   return (
-    <main style={{ padding: "1rem 0" }}>
+    <main>
+      <NavBar />
       <h2>Manage Drinks</h2>
     </main>
   );
 }
 
-export default PracticePage;
+export default ManageDrinksPage;
