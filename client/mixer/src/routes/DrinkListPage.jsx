@@ -1,10 +1,11 @@
 import NavBar from '../components/NavBar';
+import DrinkList from '../components/DrinkList'
 
 const DrinkListPage = () => {
   return (
     <main>
       <NavBar />
-      <h2>Drink List</h2>
+      <DrinkList />
     </main>
   );
 }
