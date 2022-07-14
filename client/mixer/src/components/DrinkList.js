@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 const DrinkList = () => {
 
   const [ drinkList, setDrinkList ] = useState([]);
-  const [ cardSide, setCardSide ] = useState(true);
+  const [ selectIndex, setSelectIndex ] = useState(null);
 
   const getDrinks = () => {
     fetch('http://localhost:3000/drinks')
@@ -11,17 +11,27 @@ const DrinkList = () => {
     .then(data => setDrinkList(data));
   };
 
+  const handleCardFlip = (index) => {
+    setSelectIndex(index);
+  };
+
+  const handleCardFlipBack = (index) => {
+    setSelectIndex(null);
+  };
+
+
+
   useEffect(() => {
     getDrinks();
   }, []);
 
-  const map = drinkList.map((drink) => {
-    return ( (cardSide ?
-        <div key={drink._id} className='bg-rose-300 m-20 rounded-md'>
+  const map = drinkList.map((drink, index) => {
+    return ( (selectIndex !== index ?
+        <div key={drink._id} className='bg-rose-300 m-20 rounded-md' onClick={(event) => {handleCardFlip(index)}}>
           <h1 className='m-20'>{drink.name}</h1>
         </div>
      :
-        <div key={drink._id} className='bg-rose-300 m-20 rounded-md'>
+        <div key={drink._id} className='bg-rose-300 m-20 rounded-md' onClick={(event) => {handleCardFlipBack(index)}}>
         <h1 className='m-10'>ingredients:</h1>
           <ul>
             <li>{drink.ingredients[0]}</li>
